@@ -14,7 +14,7 @@ public class MemoryGame extends Application {
     @Override
     public void start(Stage mainStage) {
         // Sæt scene og vindue
-        mainStage.setTitle("Memory Game");
+        mainStage.setTitle("Memory Game 2");
 
         root = new Pane();
         root.setPrefSize(1920, 1000);      // Brikkerne er 80*80 på et 4*4 bræt
