@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66eb898c-34b2-4748-a777-0b3d0f82a839" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/Startscreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/HelloController.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/EndScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/GameScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/Lid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/Scoreboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/Startscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/StartScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2WNnDO7L7qljosfnxyXGA6kZzKl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -112,7 +113,7 @@
       <updated>1696581786486</updated>
       <workItem from="1696581787702" duration="1175000" />
       <workItem from="1696582974783" duration="141000" />
-      <workItem from="1696583140467" duration="303000" />
+      <workItem from="1696583140467" duration="744000" />
     </task>
     <servers />
   </component>

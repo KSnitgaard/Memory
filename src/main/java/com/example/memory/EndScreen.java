@@ -1,4 +1,4 @@
 package com.example.memory;
 
-public class Startscreen {
+public class EndScreen {
 }
