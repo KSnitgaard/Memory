@@ -14,15 +14,6 @@ import java.io.IOException;
 
 public class MemoryGame extends Application {
 
-    private Pane scenegraf;
-    private Pane scenegraf2;
-    private Pane scenegraf3;
-
-
-
-
-    private Plate[][] plates;
-
     @Override
     public void start(Stage stage) throws IOException {
         Pane scenegraf = new Pane();
@@ -53,7 +44,7 @@ public class MemoryGame extends Application {
             }
         };
 
-        plates = new Plate[6][4];
+        Plate[][] plates = new Plate[6][4];
         for (int i=0; i<6; i++)
             for (int j=0; j<4; j++) {
                 plates[i][j] = new Plate(i, j, "brik1.png");
