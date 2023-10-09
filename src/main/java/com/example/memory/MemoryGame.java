@@ -31,6 +31,7 @@ public class MemoryGame extends Application {
         startButton.setTranslateY(600);
         startButton.setScaleX(4);
         startButton.setScaleY(4);
+        startButton.setStyle("-fx-background-radius: 15");
         scenegraf.getChildren().add(startButton);
 
         startButton.setOnAction(new EventHandler<ActionEvent>() {
