@@ -27,31 +27,25 @@ public class MemoryGame extends Application {
         scenegraf.getChildren().add(menu);
 
         Button startButton = new Button("Start!");
-        startButton.setTranslateX(945);
-        startButton.setTranslateY(600);
-        startButton.setScaleX(4);
-        startButton.setScaleY(4);
+        startButton.setTranslateX(940);
+        startButton.setTranslateY(614);
+        startButton.setScaleX(3);
+        startButton.setScaleY(3);
         startButton.setStyle("-fx-background-radius: 15");
         scenegraf.getChildren().add(startButton);
 
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // Switch to the second scene when the "Start!" button is clicked
-                stage.setScene(createMemoryGameScene());
-                stage.setTitle("Memory Game");
-            }
+        startButton.setOnAction(event -> {
+            // Switch to the second scene when the "Start!" button is clicked
+            stage.setScene(createMemoryGameScene());
+            stage.setTitle("Memory Game");
         });
     }
 
     private Scene createMemoryGameScene() {
         Pane scenegraf2 = new Pane();
-        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                Plate b = (Plate) e.getSource();
-          b.vend();
-            }
+        EventHandler<MouseEvent> eventHandler = e -> {
+            Plate b = (Plate) e.getSource();
+            b.vend();
         };
 
         Plate[][] plates = new Plate[6][4];
