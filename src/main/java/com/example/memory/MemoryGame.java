@@ -1,7 +1,6 @@
 package com.example.memory;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,7 +34,6 @@ public class MemoryGame extends Application {
         scenegraf.getChildren().add(startButton);
 
         startButton.setOnAction(event -> {
-            // Switch to the second scene when the "Start!" button is clicked
             stage.setScene(createMemoryGameScene());
             stage.setTitle("Memory Game");
         });
@@ -43,6 +41,7 @@ public class MemoryGame extends Application {
 
     private Scene createMemoryGameScene() {
         Pane scenegraf2 = new Pane();
+
         EventHandler<MouseEvent> eventHandler = e -> {
             Plate b = (Plate) e.getSource();
             b.vend();
