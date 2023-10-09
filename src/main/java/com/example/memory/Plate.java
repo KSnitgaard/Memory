@@ -12,8 +12,8 @@ public class Plate extends ImageView {
         forside = new Image(getClass().getResource(filnavn).toString());
         bagside = new Image(getClass().getResource("bagside.png").toString());
         setImage(forside);
-        setX(x*100);
-        setY(y*100);
+        setX(x*300);
+        setY(y*200);
     }
 
     public void vend() {
