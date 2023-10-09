@@ -1,6 +1,7 @@
 package com.example.memory;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,22 +26,30 @@ public class MemoryGame extends Application {
         ImageView menu = new ImageView(new Image(getClass().getResource("Startscreen.png").toString()));
         scenegraf.getChildren().add(menu);
 
-        Button Start = new Button("Start!");
-        Start.setTranslateX(945);
-        Start.setTranslateY(600);
-        Start.setScaleX(4);
-        Start.setScaleY(4);
-        scenegraf.getChildren().add(Start);
+        Button startButton = new Button("Start!");
+        startButton.setTranslateX(945);
+        startButton.setTranslateY(600);
+        startButton.setScaleX(4);
+        startButton.setScaleY(4);
+        scenegraf.getChildren().add(startButton);
 
+        startButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // Switch to the second scene when the "Start!" button is clicked
+                stage.setScene(createMemoryGameScene());
+                stage.setTitle("Memory Game");
+            }
+        });
+    }
 
-
+    private Scene createMemoryGameScene() {
         Pane scenegraf2 = new Pane();
-
         EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
                 Plate b = (Plate) e.getSource();
-                b.vend();
+          b.vend();
             }
         };
 
@@ -51,11 +60,7 @@ public class MemoryGame extends Application {
                 scenegraf2.getChildren().add(plates[i][j]);
                 plates[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
             }
-
-        Scene scene2 = new Scene(scenegraf2, 1920, 1000);
-        stage.setTitle("Memory Game");
-        stage.setScene(scene);
-        stage.show();
+        return new Scene(scenegraf2, 1920, 1000);
     }
 
     public static void main(String[] args) {
