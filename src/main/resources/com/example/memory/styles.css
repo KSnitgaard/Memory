@@ -20,3 +20,21 @@
     -fx-text-fill:  #2E2B27;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
+
+.backButton {
+    -fx-font-family: 'Chalkduster', sans-serif;
+    -fx-font-size: 12px;
+    -fx-background-color: #2E2B27;
+    -fx-text-fill: white;
+    -fx-border-color: #C7A35E;
+    -fx-border-width: 3px;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.backButton:hover {
+    -fx-background-color: white;
+    -fx-text-fill:  #2E2B27;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}

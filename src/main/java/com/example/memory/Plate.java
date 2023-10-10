@@ -8,10 +8,10 @@ public class Plate extends ImageView {
 
     private Image forside, bagside;
 
-    public Plate(int x, int y, String filnavn) {
+    public Plate(int x, int y, String s, String filnavn) {
         forside = new Image(getClass().getResource(filnavn).toString());
-        bagside = new Image(getClass().getResource("PlatePizza.png").toString());
-        setImage(forside);
+        bagside = new Image(getClass().getResource("Lid.png").toString());
+        setImage(bagside);
         setX(x*300);
         setY(y*200);
         setTranslateX(100);
@@ -20,6 +20,6 @@ public class Plate extends ImageView {
 
     public void vend() {
         System.out.println("brik " + getX() + "," + getY());
-        setImage(bagside);
+        setImage(forside);
     }
 }
