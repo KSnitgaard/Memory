@@ -5,60 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66eb898c-34b2-4748-a777-0b3d0f82a839" name="Changes" comment="merge">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/Lid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidArgentina.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidBelgium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidChina.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidChinabox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidChurros.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidCrossaint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidCurry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidEmpanadas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidFrance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidFries.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidGermany.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidIndia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidItaly.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidJapan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidKebab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidMeatballs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidMexico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidPizza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidSchnitzel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidSpain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidSushi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidSweden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidTaco.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/LidTurkey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateArgentina.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateBelgium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateChina.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateChinabox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateChurros.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateCrossaint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateCurry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateEmpanadas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateFrance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateFries.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateGermany.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateIndia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateItaly.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateJapan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateKebab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateMeatballs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateMexico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateSchnitzel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateSpain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateSushi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateSweden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateTaco.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/PlateTurkey.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/Plate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/Plate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/Restart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/StartScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/memory/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +152,7 @@
       <workItem from="1696863208067" duration="4869000" />
       <workItem from="1696870590703" duration="2188000" />
       <workItem from="1696885133798" duration="697000" />
-      <workItem from="1696919690928" duration="14272000" />
+      <workItem from="1696919690928" duration="15619000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />
@@ -262,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696921501129</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="merge">
+      <option name="closed" value="true" />
+      <created>1696934976355</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696934976355</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
