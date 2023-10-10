@@ -25,15 +25,17 @@ public class MemoryGame extends Application {
         ImageView menu = new ImageView(new Image(getClass().getResource("Startscreen.png").toString()));
         scenegraf.getChildren().add(menu);
 
-        Button startButton = new Button("Start!");
-        startButton.setTranslateX(940);
-        startButton.setTranslateY(614);
-        startButton.setScaleX(3);
-        startButton.setScaleY(3);
-        startButton.setStyle("-fx-background-radius: 15");
-        scenegraf.getChildren().add(startButton);
+        Button Start = new Button("Start!");
+        Start.setTranslateX(925);
+        Start.setTranslateY(600);
+        Start.setScaleX(4);
+        Start.setScaleY(4);
+        Start.getStyleClass().add("startButton");
 
-        startButton.setOnAction(event -> {
+        scenegraf.getChildren().add(Start);
+        Start.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+
+        Start.setOnAction(event -> {
             stage.setScene(createMemoryGameScene());
             stage.setTitle("Memory Game");
         });
@@ -41,6 +43,9 @@ public class MemoryGame extends Application {
 
     private Scene createMemoryGameScene() {
         Pane scenegraf2 = new Pane();
+
+        ImageView game = new ImageView(new Image(getClass().getResource("BaggrundBord.png").toString()));
+        scenegraf2.getChildren().add(game);
 
         EventHandler<MouseEvent> eventHandler = e -> {
             Plate b = (Plate) e.getSource();
@@ -50,7 +55,7 @@ public class MemoryGame extends Application {
         Plate[][] plates = new Plate[6][4];
         for (int i=0; i<6; i++)
             for (int j=0; j<4; j++) {
-                plates[i][j] = new Plate(i, j, "brik1.png");
+                plates[i][j] = new Plate(i, j, "Test.png");
                 scenegraf2.getChildren().add(plates[i][j]);
                 plates[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
             }

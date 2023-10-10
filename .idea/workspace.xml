@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66eb898c-34b2-4748-a777-0b3d0f82a839" name="Changes" comment="merge">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/Blåt eksempel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/memory/Blåt1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" afterDir="false" />
     </list>
@@ -35,6 +37,7 @@
   }
 }</component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -97,12 +100,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/kaspe/OneDrive/Dokumenter/GitHub/Memory",
+    "last_opened_file_path": "C:/Users/kaspe/Downloads/Memory-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -147,7 +151,10 @@
       <workItem from="1696832343327" duration="23000" />
       <workItem from="1696838315586" duration="842000" />
       <workItem from="1696840480248" duration="1579000" />
-      <workItem from="1696863208067" duration="4725000" />
+      <workItem from="1696863208067" duration="4869000" />
+      <workItem from="1696870590703" duration="2188000" />
+      <workItem from="1696885133798" duration="697000" />
+      <workItem from="1696919690928" duration="1656000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />
@@ -189,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696866551132</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="merge">
+      <option name="closed" value="true" />
+      <created>1696868074263</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696868074263</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +234,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="merge" />
     <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
