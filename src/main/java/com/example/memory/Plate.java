@@ -23,4 +23,5 @@ public class Plate extends ImageView {
         setImage(forside);
     }
 
+
 }
