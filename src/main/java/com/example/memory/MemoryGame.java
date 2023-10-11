@@ -18,6 +18,8 @@ public class MemoryGame extends Application {
     private Plate plate;
     private Plate firstFlippedPlate = null;
 
+    private boolean isTwoPlatesFlipped = false;
+
     @Override
     public void start(Stage stage) throws IOException {
         Pane scenegraf = new Pane();

@@ -30,9 +30,6 @@ public class Plate extends ImageView {
     public String getPlateId(){
         return id;
     }
-    /*public boolean isMatch(Plate otherPlate) {
-        return this.getId() != null && this.getId().equals(otherPlate.getId());
-    }*/
 
     public void vend() {
         System.out.println("brik " + getX() + "," + getY());
