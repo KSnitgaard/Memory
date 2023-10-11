@@ -50,9 +50,10 @@ public class MemoryGame extends Application {
             firstFlippedPlate = plate;
             plate.vend();
         } else {
-            plate.vend();
-            if (firstFlippedPlate.isMatch(plate)) {
-                System.out.println("XXXXXX");
+            if (firstFlippedPlate.getPlateId().equals(plate.getPlateId())) {
+                System.out.println("MATCHED");
+                firstFlippedPlate.setOpacity(0.0);
+                plate.setOpacity(0.0);
                 firstFlippedPlate = null;
             } else {
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
@@ -76,6 +77,7 @@ public class MemoryGame extends Application {
         EventHandler<MouseEvent> eventHandler = e -> {
             Plate plate = (Plate) e.getSource();
             plate.vend();
+            handlePlateFlip(plate);
         };
 
         bland(scenegraf2, eventHandler);
@@ -114,7 +116,7 @@ public class MemoryGame extends Application {
         for (int i=0; i<liste.length;i++) System.out.println(liste[i]);
         System.out.println("----------------------");
 
-        for (int i=0; i<0; i++) {
+        for (int i=0; i<100; i++) {
             String a_id, a_fil;
 
             int x = (int) (Math.random() * 24.0) * 2;

@@ -8,6 +8,7 @@ public class Plate extends ImageView {
 
     private Image forside, bagside;
     private MemoryGame memoryGame;
+    private String id;
     public void setMemoryGame(MemoryGame memoryGame) {
         this.memoryGame = memoryGame;
     }
@@ -20,14 +21,18 @@ public class Plate extends ImageView {
         setY(y*200);
         setTranslateX(100);
         setTranslateY(100);
+        id = s;
     }
     //public void notifyFlipped() {
     //    memoryGame.handlePlateFlip(this);
     //}
 
-    public boolean isMatch(Plate otherPlate) {
-        return this.getId().equals(otherPlate.getId());
+    public String getPlateId(){
+        return id;
     }
+    /*public boolean isMatch(Plate otherPlate) {
+        return this.getId() != null && this.getId().equals(otherPlate.getId());
+    }*/
 
     public void vend() {
         System.out.println("brik " + getX() + "," + getY());
