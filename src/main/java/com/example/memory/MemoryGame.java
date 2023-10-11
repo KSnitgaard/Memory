@@ -11,9 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class MemoryGame extends Application {
 
@@ -56,26 +53,11 @@ public class MemoryGame extends Application {
             b.vend();
         };
 
-        String liste[] = { "ida", "PlateArgentina.png", "ida", "PlateEmpanadas.png" , "idb", "PlateBelgium.png", "idb", "PlateFries.png", "idc", "PlateChina.png", "idc", "PlateChinabox.png",
-        "idd", "PlateFrance.png", "idd", "PlateCrossaint.png","ide", "PlateGermany.png", "ide", "PlateSchnitzel.png", "idf", "PlateIndia.png", "idf", "PlateCurry.png", "idg", "PlateItaly.png",
-        "idg", "PlatePizza.png", "idh", "PlateJapan.png", "idh", "PlateSushi.png", "idi", "PlateMexico.png", "idi", "PlateTaco.png", "idj", "PlateSpain.png", "idj", "PlateChurros.png",
-        "idk", "PlateSweden.png", "idk", "PlateMeatballs.png", "idl", "PlateTurkey.png", "idl", "PlateKebab.png"};
-        Plate[][] plates = new Plate[6][4];
-        int t=0;
-        for (int i=0; i<6; i++)
-            for (int j=0; j<4; j++) {
-                System.out.println(liste[t]+"/"+liste[t+1]);
-                plates[i][j] = new Plate(i, j, liste[t], liste[t+1]);
-                t = t+2;
-                scenegraf2.getChildren().add(plates[i][j]);
-                plates[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
-            }
-        bland();
+        bland(scenegraf2, eventHandler);
 
-        // Create a button to go back to the initial scene
         Button backButton = new Button("Back to Start");
-        backButton.setTranslateX(1700); // Adjust X position as needed
-        backButton.setTranslateY(40); // Adjust Y position as needed
+        backButton.setTranslateX(1700);
+        backButton.setTranslateY(40);
         backButton.setScaleX(2.5);
         backButton.setScaleY(2.5);
         backButton.getStyleClass().add("backButton");
@@ -83,10 +65,9 @@ public class MemoryGame extends Application {
         scenegraf2.getChildren().add(backButton);
         backButton.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
-        // Set the event handler to switch back to the initial scene
         backButton.setOnAction(event -> {
-            stage.setScene(prevScene); // Switch back to the initial scene
-            stage.setTitle("Start"); // Update the stage title
+            stage.setScene(prevScene);
+            stage.setTitle("Start");
         });
 
         return memoryGameScene;
@@ -96,7 +77,9 @@ public class MemoryGame extends Application {
         launch();
     }
 
-    public void bland() {
+
+    public void bland(Pane scenegraf2, EventHandler<MouseEvent> eventHandler) {
+
         String liste[] = { "ida", "PlateArgentina.png", "ida", "PlateEmpanadas.png" , "idb", "PlateBelgium.png", "idb", "PlateFries.png", "idc", "PlateChina.png", "idc", "PlateChinabox.png",
                 "idd", "PlateFrance.png", "idd", "PlateCrossaint.png","ide", "PlateGermany.png", "ide", "PlateSchnitzel.png", "idf", "PlateIndia.png", "idf", "PlateCurry.png", "idg", "PlateItaly.png",
                 "idg", "PlatePizza.png", "idh", "PlateJapan.png", "idh", "PlateSushi.png", "idi", "PlateMexico.png", "idi", "PlateTaco.png", "idj", "PlateSpain.png", "idj", "PlateChurros.png",
@@ -105,19 +88,30 @@ public class MemoryGame extends Application {
         for (int i=0; i<liste.length;i++) System.out.println(liste[i]);
         System.out.println("----------------------");
 
-        for (int i=0; i<100; i++) {
+        for (int i=0; i<10; i++) {
             String a_id, a_fil;
 
-            int x = (int)(Math.random()*24.0)*2;
+            int x = (int) (Math.random() * 24.0) * 2;
             a_id = liste[x];
-            a_fil = liste[x+1];
-            int y = (int)(Math.random()*24.0)*2;
+            a_fil = liste[x + 1];
+            int y = (int) (Math.random() * 24.0) * 2;
             liste[x] = liste[y];
-            liste[x+1] = liste[y+1];
+            liste[x + 1] = liste[y + 1];
             liste[y] = a_id;
-            liste[y+1] = a_fil;
-
+            liste[y + 1] = a_fil;
         }
+
+            Plate[][] plates = new Plate[6][4];
+            int t=0;
+            for (int i=0; i<6; i++)
+                for (int j=0; j<4; j++) {
+                    plates[i][j] = new Plate(i, j, liste[t], liste[t+1]);
+                    t = t+2;
+                    scenegraf2.getChildren().add(plates[i][j]);
+                    plates[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
+                }
+
+
         for (int i=0; i<liste.length;i++) System.out.println(liste[i]);
         System.out.println("----------------------");
 

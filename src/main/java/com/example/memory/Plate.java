@@ -22,4 +22,5 @@ public class Plate extends ImageView {
         System.out.println("brik " + getX() + "," + getY());
         setImage(forside);
     }
+
 }
