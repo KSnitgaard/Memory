@@ -1,5 +1,6 @@
 package com.example.memory;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -9,10 +10,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class MemoryGame extends Application {
+    private Plate plate;
+    private Plate firstFlippedPlate = null;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -39,6 +43,27 @@ public class MemoryGame extends Application {
             stage.setScene(createMemoryGameScene(stage, scene));
             stage.setTitle("Memory Game");
         });
+
+    }
+    public void handlePlateFlip(Plate plate) {
+        if (firstFlippedPlate == null) {
+            firstFlippedPlate = plate;
+            plate.vend();
+        } else {
+            plate.vend();
+            if (firstFlippedPlate.isMatch(plate)) {
+                System.out.println("XXXXXX");
+                firstFlippedPlate = null;
+            } else {
+                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                pause.setOnFinished(e -> {
+                    firstFlippedPlate.vendTilbage();
+                    plate.vendTilbage();
+                    firstFlippedPlate = null;
+                });
+                pause.play();
+            }
+        }
     }
 
     private Scene createMemoryGameScene(Stage stage, Scene prevScene) {
@@ -49,8 +74,8 @@ public class MemoryGame extends Application {
         scenegraf2.getChildren().add(game);
 
         EventHandler<MouseEvent> eventHandler = e -> {
-            Plate b = (Plate) e.getSource();
-            b.vend();
+            Plate plate = (Plate) e.getSource();
+            plate.vend();
         };
 
         bland(scenegraf2, eventHandler);
@@ -70,6 +95,7 @@ public class MemoryGame extends Application {
             stage.setTitle("Start");
         });
 
+
         return memoryGameScene;
     }
 
@@ -88,7 +114,7 @@ public class MemoryGame extends Application {
         for (int i=0; i<liste.length;i++) System.out.println(liste[i]);
         System.out.println("----------------------");
 
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<0; i++) {
             String a_id, a_fil;
 
             int x = (int) (Math.random() * 24.0) * 2;
@@ -106,6 +132,7 @@ public class MemoryGame extends Application {
             for (int i=0; i<6; i++)
                 for (int j=0; j<4; j++) {
                     plates[i][j] = new Plate(i, j, liste[t], liste[t+1]);
+                    plates[i][j].setMemoryGame(this);
                     t = t+2;
                     scenegraf2.getChildren().add(plates[i][j]);
                     plates[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
