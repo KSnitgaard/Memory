@@ -1,7 +1,9 @@
 package com.example.memory;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.css.FontFace;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,20 +12,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class MemoryGame extends Application {
-    private Plate plate;
     private Plate firstFlippedPlate = null;
-    private boolean isFlippingInProgress = false;
     private int counterPair = 0;
     private int counterTræk = 0;
-
-    private Scoreboard scoreboard;
-
+    private Label totalGuessesLabel = new Label();
+    private Label correctMatchesLabel = new Label();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -50,10 +50,6 @@ public class MemoryGame extends Application {
             stage.setScene(createMemoryGameScene(stage, scene));
             stage.setTitle("Memory Game");
         });
-
-        //scoreboard = new Scoreboard();
-
-
     }
 
     public void handlePlateFlip(Plate plate) {
@@ -61,20 +57,25 @@ public class MemoryGame extends Application {
             firstFlippedPlate = plate;
             plate.vend();
         } else {
-            isFlippingInProgress = true;
             if (firstFlippedPlate.getPlateId().equals(plate.getPlateId())) {
                 System.out.println("MATCHED");
+                FadeTransition fade = new FadeTransition(Duration.seconds(2), plate);
+                fade.setFromValue(1.0);
+                fade.setToValue(0.0);
+                fade.play();
+                FadeTransition fade1 = new FadeTransition(Duration.seconds(2), firstFlippedPlate);
+                fade1.setFromValue(1.0);
+                fade1.setToValue(0.0);
+                fade1.play();
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(e -> {
-                    firstFlippedPlate.setOpacity(0.0);
-                    plate.setOpacity(0.0);
                     firstFlippedPlate = null;
-                    isFlippingInProgress = false;
-                    //scoreboard.incrementCorrectMatches();
                     counterTræk++;
                     counterPair++;
-
-                    //updateLabels();
+                    System.out.println(counterPair);
+                    correctMatchesLabel.setText("Correct Matches: " + counterPair);
+                    System.out.println(correctMatchesLabel);
+                    gameStop();
                 });
                 pause.play();
             } else {
@@ -83,44 +84,19 @@ public class MemoryGame extends Application {
                     firstFlippedPlate.vendTilbage();
                     plate.vendTilbage();
                     firstFlippedPlate = null;
-                    isFlippingInProgress = false;
                     counterTræk++;
-                    //updateLabels();  // Update the labels
                     System.out.println(counterTræk);
+                    totalGuessesLabel.setText("Total guesses: " + counterTræk);
+                    System.out.println(totalGuessesLabel);
                 });
                 pause.play();
-                if (counterPair == 12) {
-                    Pane scenegraf3 = new Pane();
-                    Scene endscene = new Scene(scenegraf3, 1920, 1000);
-                    scoreboard = new Scoreboard();
-
-                    ImageView EndScene = new ImageView(new Image(getClass().getResource("EndScreen.png").toString()));
-                    scenegraf3.getChildren().add(EndScene);
-                }
-                }
-                //scoreboard.incrementTotalGuesses();
-                //updateLabels();
-
-
             }
-            //totalGuessesLabel.setText("Total Guesses: " + scoreboard.getTotalGuesses());
-            //correctMatchesLabel.setText("Correct Matches: " + scoreboard.getCorrectMatches());
-
-
         }
-
-
-    /*private void updateLabels()
-    {
-        correctMatchesLabel.setText(Integer.toString(counterPair));
-        totalGuessesLabel.setText(Integer.toString(counterTræk));
-    }*/
+    }
 
     public Scene createMemoryGameScene(Stage stage, Scene prevScene) {
         Pane scenegraf2 = new Pane();
         Scene memoryGameScene = new Scene(scenegraf2, 1920, 1000);
-        scoreboard = new Scoreboard();
-        Label totalGuessesLabel = new Label();
 
         ImageView game = new ImageView(new Image(getClass().getResource("BaggrundBord.png").toString()));
         scenegraf2.getChildren().add(game);
@@ -148,15 +124,27 @@ public class MemoryGame extends Application {
             stage.setTitle("Start");
         });
 
-        totalGuessesLabel.setText("Total guesses: " + counterTræk);
-        totalGuessesLabel.setTranslateX(20);
+        totalGuessesLabel.setTranslateX(125);
         totalGuessesLabel.setTranslateY(20);
+        totalGuessesLabel.setTextFill(Color.WHITE);
+        //totalGuessesLabel.setFont(FontFace 'Chalkduster', sans-serif;);
+        totalGuessesLabel.setScaleX(3);
+        totalGuessesLabel.setScaleY(3);
+        totalGuessesLabel.getStyleClass().add("labelText");
 
 
-        Label correctMatchesLabel = new Label("Correct Matches: " + counterPair);
-        correctMatchesLabel.setTranslateX(20);
-        correctMatchesLabel.setTranslateY(40);
+
+
+        correctMatchesLabel.setTranslateX(140);
+        correctMatchesLabel.setTranslateY(60);
+        correctMatchesLabel.setTextFill(Color.WHITE);
+        correctMatchesLabel.setScaleX(3);
+        correctMatchesLabel.setScaleY(3);
+        correctMatchesLabel.getStyleClass().add("labelText");
+
         scenegraf2.getChildren().addAll(totalGuessesLabel, correctMatchesLabel);
+        totalGuessesLabel.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+        correctMatchesLabel.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
 
         return memoryGameScene;
@@ -211,21 +199,10 @@ public class MemoryGame extends Application {
         if (counterPair == 12) {
             Pane scenegraf3 = new Pane();
             Scene EndScene = new Scene(scenegraf3, 1920, 1000);
-            scoreboard = new Scoreboard();
 
             ImageView game = new ImageView(new Image(getClass().getResource("EndScreen.png").toString()));
             scenegraf3.getChildren().add(game);
         }
     }
 
-    /*public Scene createEndScene(Stage stage, Scene prevScene) {
-        Pane scenegraf3 = new Pane();
-        Scene EndScene = new Scene(scenegraf3, 1920, 1000);
-        scoreboard = new Scoreboard();
-
-        ImageView game = new ImageView(new Image(getClass().getResource("EndScreen.png").toString()));
-        scenegraf3.getChildren().add(game);
-
-        return EndScene;
-    }*/
 }

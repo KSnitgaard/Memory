@@ -38,3 +38,7 @@
     -fx-text-fill:  #2E2B27;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
+
+.labelText{
+    -fx-font-family: 'Chalkduster', sans-serif;
+}
