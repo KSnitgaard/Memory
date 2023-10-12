@@ -3,7 +3,6 @@ package com.example.memory;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.css.FontFace;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,6 +23,7 @@ public class MemoryGame extends Application {
     private int counterTræk = 0;
     private Label totalGuessesLabel = new Label();
     private Label correctMatchesLabel = new Label();
+    private Scene startScene;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -32,6 +32,7 @@ public class MemoryGame extends Application {
         stage.setScene(scene);
         stage.setTitle("Start");
         stage.show();
+        startScene = scene;
 
         ImageView menu = new ImageView(new Image(getClass().getResource("Startscreen.png").toString()));
         scenegraf.getChildren().add(menu);
@@ -52,18 +53,18 @@ public class MemoryGame extends Application {
         });
     }
 
-    public void handlePlateFlip(Plate plate) {
+    public void handlePlateFlip(Plate plate, Stage stage, Scene scene) {
         if (firstFlippedPlate == null) {
             firstFlippedPlate = plate;
             plate.vend();
         } else {
             if (firstFlippedPlate.getPlateId().equals(plate.getPlateId())) {
                 System.out.println("MATCHED");
-                FadeTransition fade = new FadeTransition(Duration.seconds(2), plate);
+                FadeTransition fade = new FadeTransition(Duration.seconds(1), plate);
                 fade.setFromValue(1.0);
                 fade.setToValue(0.0);
                 fade.play();
-                FadeTransition fade1 = new FadeTransition(Duration.seconds(2), firstFlippedPlate);
+                FadeTransition fade1 = new FadeTransition(Duration.seconds(1), firstFlippedPlate);
                 fade1.setFromValue(1.0);
                 fade1.setToValue(0.0);
                 fade1.play();
@@ -72,10 +73,12 @@ public class MemoryGame extends Application {
                     firstFlippedPlate = null;
                     counterTræk++;
                     counterPair++;
+                    if (counterPair == 12){
+                        switchToScene3(stage);
+                    }
                     System.out.println(counterPair);
                     correctMatchesLabel.setText("Correct Matches: " + counterPair);
                     System.out.println(correctMatchesLabel);
-                    gameStop();
                 });
                 pause.play();
             } else {
@@ -88,6 +91,9 @@ public class MemoryGame extends Application {
                     System.out.println(counterTræk);
                     totalGuessesLabel.setText("Total guesses: " + counterTræk);
                     System.out.println(totalGuessesLabel);
+                    if (counterTræk == 40){
+                        switchToScene4(stage);
+                    }
                 });
                 pause.play();
             }
@@ -104,7 +110,7 @@ public class MemoryGame extends Application {
         EventHandler<MouseEvent> eventHandler = e -> {
             Plate plate = (Plate) e.getSource();
             plate.vend();
-            handlePlateFlip(plate);
+            handlePlateFlip(plate, stage, memoryGameScene);
         };
 
         bland(scenegraf2, eventHandler);
@@ -122,18 +128,18 @@ public class MemoryGame extends Application {
         backButton.setOnAction(event -> {
             stage.setScene(prevScene);
             stage.setTitle("Start");
+            counterTræk = 0;
+            counterPair = 0;
+            totalGuessesLabel.setText("Total guesses: " + counterTræk);
+            correctMatchesLabel.setText("Correct Matches: " + counterPair);
         });
 
         totalGuessesLabel.setTranslateX(125);
         totalGuessesLabel.setTranslateY(20);
         totalGuessesLabel.setTextFill(Color.WHITE);
-        //totalGuessesLabel.setFont(FontFace 'Chalkduster', sans-serif;);
         totalGuessesLabel.setScaleX(3);
         totalGuessesLabel.setScaleY(3);
         totalGuessesLabel.getStyleClass().add("labelText");
-
-
-
 
         correctMatchesLabel.setTranslateX(140);
         correctMatchesLabel.setTranslateY(60);
@@ -146,14 +152,12 @@ public class MemoryGame extends Application {
         totalGuessesLabel.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         correctMatchesLabel.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
-
         return memoryGameScene;
     }
 
     public static void main(String[] args) {
         launch();
     }
-
 
     public void bland(Pane scenegraf2, EventHandler<MouseEvent> eventHandler) {
 
@@ -195,14 +199,86 @@ public class MemoryGame extends Application {
 
     }
 
-    public void gameStop() {
-        if (counterPair == 12) {
-            Pane scenegraf3 = new Pane();
-            Scene EndScene = new Scene(scenegraf3, 1920, 1000);
+    public void switchToScene3(Stage stage){
+        Pane scenegraf3 = new Pane();
+        Scene scene3 = new Scene(scenegraf3, 1920, 1000);
 
-            ImageView game = new ImageView(new Image(getClass().getResource("EndScreen.png").toString()));
-            scenegraf3.getChildren().add(game);
-        }
+        ImageView EndScene = new ImageView(new Image(getClass().getResource("EndScreen.png").toString()));
+        scenegraf3.getChildren().add(EndScene);
+
+        stage.setScene(scene3);
+        stage.setTitle("Spil vundet");
+
+        totalGuessesLabel.setTranslateX(900);
+        totalGuessesLabel.setTranslateY(320);
+        totalGuessesLabel.setTextFill(Color.WHITE);
+        totalGuessesLabel.setScaleX(5);
+        totalGuessesLabel.setScaleY(5);
+        totalGuessesLabel.getStyleClass().add("labelText");
+
+        scenegraf3.getChildren().addAll(totalGuessesLabel);
+        totalGuessesLabel.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+
+        Button tryAgain = new Button("Try again");
+        tryAgain.setTranslateX(900);
+        tryAgain.setTranslateY(750);
+        tryAgain.setScaleX(4);
+        tryAgain.setScaleY(4);
+        tryAgain.getStyleClass().add("backButton");
+
+        scenegraf3.getChildren().add(tryAgain);
+        tryAgain.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+
+        tryAgain.setOnAction(event -> {
+            stage.setScene(startScene);
+            stage.setTitle("Start");
+            counterTræk = 0;
+            counterPair = 0;
+            totalGuessesLabel.setText("Total guesses: " + counterTræk);
+            correctMatchesLabel.setText("Correct Matches: " + counterPair);
+        });
+
+    }
+
+    public void switchToScene4(Stage stage){
+        Pane scenegraf4 = new Pane();
+        Scene scene4 = new Scene(scenegraf4, 1920, 1000);
+
+        ImageView EndScene = new ImageView(new Image(getClass().getResource("EndScreenAngry.png").toString()));
+        scenegraf4.getChildren().add(EndScene);
+
+        stage.setScene(scene4);
+        stage.setTitle("Slowpoke");
+
+        correctMatchesLabel.setTranslateX(900);
+        correctMatchesLabel.setTranslateY(320);
+        correctMatchesLabel.setTextFill(Color.WHITE);
+        correctMatchesLabel.setScaleX(5);
+        correctMatchesLabel.setScaleY(5);
+        correctMatchesLabel.getStyleClass().add("labelText");
+
+        scenegraf4.getChildren().addAll(totalGuessesLabel);
+        totalGuessesLabel.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+
+        Button tryAgain = new Button("Try again");
+        tryAgain.setTranslateX(900);
+        tryAgain.setTranslateY(750);
+        tryAgain.setScaleX(4);
+        tryAgain.setScaleY(4);
+        tryAgain.getStyleClass().add("backButton");
+
+        scenegraf4.getChildren().add(tryAgain);
+        tryAgain.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+
+        tryAgain.setOnAction(event -> {
+            stage.setScene(startScene);
+            stage.setTitle("Start");
+            counterTræk = 0;
+            counterPair = 0;
+            totalGuessesLabel.setText("Total guesses: " + counterTræk);
+            correctMatchesLabel.setText("Correct Matches: " + counterPair);
+        });
+
     }
 
 }
