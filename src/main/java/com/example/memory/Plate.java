@@ -23,11 +23,8 @@ public class Plate extends ImageView {
         setTranslateY(100);
         id = s;
     }
-    //public void notifyFlipped() {
-    //    memoryGame.handlePlateFlip(this);
-    //}
 
-    public String getPlateId(){
+        public String getPlateId(){
         return id;
     }
 

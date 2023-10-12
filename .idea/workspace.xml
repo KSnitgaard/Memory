@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/MemoryGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/Plate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/Plate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/memory/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/memory/Scoreboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +87,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -154,7 +158,10 @@
       <workItem from="1696870590703" duration="2188000" />
       <workItem from="1696885133798" duration="697000" />
       <workItem from="1696919690928" duration="19763000" />
-      <workItem from="1697005539512" duration="13434000" />
+      <workItem from="1697005539512" duration="14707000" />
+      <workItem from="1697091477042" duration="2573000" />
+      <workItem from="1697095233784" duration="120000" />
+      <workItem from="1697095392578" duration="6593000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <option name="closed" value="true" />
@@ -260,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697020484417</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="merge">
+      <option name="closed" value="true" />
+      <created>1697022154371</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697022154371</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +292,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -293,5 +308,15 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="merge" />
     <option name="LAST_COMMIT_MESSAGE" value="merge" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
